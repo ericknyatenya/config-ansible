@@ -1,0 +1,14 @@
+name: Ansible Lint & Dry-Run
+on:
+  pull_request:
+    paths:
+      - 'playbooks/**'
+      - 'roles/**'
+      - 'inventories/**'
+jobs:
+  ansible:
+    uses: ericknyatenya/platform-pipelines/.github/workflows/ansible_reusable.yml@main
+    with:
+      inventory: 'inventories/dev/hosts.ini'
+      playbook: 'playbooks/site.yml'
+
